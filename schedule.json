@@ -1,0 +1,417 @@
+[
+  {
+    "slot": 1,
+    "scheduled_at_utc": "2026-04-28T14:07:00Z",
+    "name": "01-stack-pain",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "Your recon stack:\n\nsubfinder | dnsx | httpx | naabu | katana | gau | nuclei | trufflehog | gowitness | ...\n8 tabs, 3 VPS, zero alerts.\n\nBugRecon runs all of it + pings Discord when it finds something.\n\nFree tier: https://app.bugrecon.me\n\n#bugbounty #recon",
+        "image": "visuals/01-stack-pain.png"
+      }
+    ]
+  },
+  {
+    "slot": 2,
+    "scheduled_at_utc": "2026-05-01T14:07:00Z",
+    "name": "09-discord-alert",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "This is what your Discord looks like when BugRecon is running.\n\nSubdomain scan complete: 12 new subs.\nHTTP probe: 34 hosts returning 401 Basic Auth.\nCritical: RCE on preprod-api · /api/exec.\n\nYou did not open a single tab.\n\nhttps://app.bugrecon.me\n\n#bugbounty #infosec",
+        "image": "visuals/09-discord-three-alerts.png"
+      }
+    ]
+  },
+  {
+    "slot": 3,
+    "scheduled_at_utc": "2026-05-04T14:07:00Z",
+    "name": "13-shadow-clone",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "Recon at scale has one bottleneck: a single VPS gets rate-limited, blocked, or just slow.\n\nBugRecon Premium ships cloud executions: distributed scanning across multiple workers in parallel.\n\nSame scope, more nodes, way faster results.\n\nhttps://app.bugrecon.me\n\n#bugbounty #recon",
+        "image": "visuals/13-shadow-clone.png"
+      }
+    ]
+  },
+  {
+    "slot": 4,
+    "scheduled_at_utc": "2026-05-07T14:07:00Z",
+    "name": "04-scope-sync",
+    "type": "thread",
+    "tweets": [
+      {
+        "text": "Manually copy-pasting bug bounty scope from H1, YWH, Bugcrowd and Intigriti into your recon tool?\n\nYou are wasting 11 hours a month. And missing every silent scope update.\n\nHere is the fix 🧵👇",
+        "image": "visuals/04-t1-scope-sync.png"
+      },
+      {
+        "text": "BugRecon native sync, one click per platform:\n\n• HackerOne\n• YesWeHack\n• Bugcrowd\n• Intigriti\n\nYour programs become projects. Their scopes become your targets. Automatically."
+      },
+      {
+        "text": "Program adds a new wildcard at 2 PM?\nBugRecon detects the diff, pulls the new domain, and queues a full recon cascade.\n\nYou hear about it before the hunters who check manually every morning."
+      },
+      {
+        "text": "Bonus: every scope stays live.\nWhen a domain leaves scope, BugRecon flags it. No more reporting an OOS asset and getting your rep dinged."
+      },
+      {
+        "text": "🚀 Stop copy-pasting scope. Start syncing it.\n\nFree tier → https://app.bugrecon.me\nDiscord → https://discord.gg/fQfjWMrxU5\n\nBuilt by hunters, for hunters.\n\n#bugbounty #hackerone #yeswehack",
+        "image": "visuals/02-t8-cta.png"
+      }
+    ]
+  },
+  {
+    "slot": 5,
+    "scheduled_at_utc": "2026-05-10T14:07:00Z",
+    "name": "03-certstream-3am",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "3:14 AM.\nA new cert is issued for *.target.com.\nCertStream catches it.\nBugRecon fires the cascade: enum, probe, nuclei, leaks.\nYour phone: critical RCE on a sub that did not exist 90 seconds ago.\n\nYou were sleeping. You still won the race.\n\nhttps://app.bugrecon.me\n\n#bugbounty",
+        "image": "visuals/03-discord-cert-314am.png"
+      }
+    ]
+  },
+  {
+    "slot": 6,
+    "scheduled_at_utc": "2026-05-13T14:07:00Z",
+    "name": "17-pricing-vs-diy",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "Cost of self-hosting your own recon stack:\n\nVPS x3: $45/mo\nDomain + cert mgmt: $5/mo\nMaintenance: 11h/mo\nMissing alerts when a tool breaks: priceless (negative)\n\nBugRecon Premium: $29/mo. Every scanner. Every alert. Zero maintenance.\n\nhttps://app.bugrecon.me\n\n#bugbounty",
+        "image": "visuals/17-pricing-vs-diy.png"
+      }
+    ]
+  },
+  {
+    "slot": 7,
+    "scheduled_at_utc": "2026-05-16T14:07:00Z",
+    "name": "12-cert-to-rce-story",
+    "type": "thread",
+    "tweets": [
+      {
+        "text": "A real timeline of how BugRecon turns a cert log entry into a paid critical.\n\n00:00 a TLS cert is issued.\n01:30 the bounty is yours.\n\n90 seconds, end to end. 🧵👇"
+      },
+      {
+        "text": "00:00.\nTarget program adds preprod-api.example.com.\nThe team requests a TLS cert from Let's Encrypt.\nThe cert lands in the public Certificate Transparency log.\n\nYou did not see it. CertStream did."
+      },
+      {
+        "text": "00:08.\nBugRecon sees the new cert hits a wildcard you monitor.\nA new subdomain entry is created in your scope.\n\nYour phone gets a Discord ping. You ignore it."
+      },
+      {
+        "text": "00:14.\nYour automation rule kicks in:\nnew sub → port scan → HTTP probe → Nuclei.\n\nAll async. All queued. Zero clicks from you."
+      },
+      {
+        "text": "00:47.\nNuclei catches a known unauth RCE template hit on /api/exec.\nOutput captured. Curl PoC ready."
+      },
+      {
+        "text": "01:12.\nDiscord alert: 💥 Critical · RCE · preprod-api.example.com.\nYou open the report template, paste the PoC, attach the BugRecon evidence link, submit.\n\n01:30. Triaged. Critical. Paid.",
+        "image": "visuals/12-t6-timeline.png"
+      },
+      {
+        "text": "🚀 Stop checking certs by hand. Start cascading them into bounties.\n\nFree tier → https://app.bugrecon.me\nDiscord → https://discord.gg/fQfjWMrxU5\n\nBuilt by hunters, for hunters.\n\n#bugbounty #recon #certtransparency",
+        "image": "visuals/02-t8-cta.png"
+      }
+    ]
+  },
+  {
+    "slot": 8,
+    "scheduled_at_utc": "2026-05-19T14:07:00Z",
+    "name": "19-ai-ranking",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "Your scope dropped 1,200 new live hosts.\n\nYou have 2 hours of focus.\n\nBugRecon AI reads every target (banners, tech, versions, verbosity) and ranks them by exploitability.\n\nYou spend those 2 hours on the top 20, not on a scroll.\n\nhttps://app.bugrecon.me\n\n#bugbounty #AI #recon",
+        "image": "visuals/19-ai-ranking.png"
+      }
+    ]
+  },
+  {
+    "slot": 9,
+    "scheduled_at_utc": "2026-05-22T14:07:00Z",
+    "name": "06-scan-cascade",
+    "type": "thread",
+    "tweets": [
+      {
+        "text": "Most hunters do recon in steps:\n\n1. Run subdomain scan\n2. Wait\n3. Run HTTP probe\n4. Wait\n5. Run nuclei\n6. Wait\n7. Forget about it\n\nBugRecon does it as a chain reaction. One trigger, full pipeline. 🧵👇",
+        "image": "visuals/06-t1-steps-vs-cascade.png"
+      },
+      {
+        "text": "The trigger can be anything:\n• A new cert via CertStream\n• A scope update from H1 / YWH / BC / Intigriti\n• A recursive subdomain discovery\n• A manual click\n\nWhat happens next is where the magic lives."
+      },
+      {
+        "text": "The cascade you configure once:\n\nport scan → HTTP probe → vuln scan → leaks scan → URL scan → basic auth → screenshot → takeover check → JS secret scan\n\nAll async. All queued. All fed by the previous step."
+      },
+      {
+        "text": "Every newly discovered wildcard gets auto-added to CertStream monitoring.\n\nRecursive enum kicks off again on fresh subs.\n\nYour attack surface map literally grows itself while you sleep."
+      },
+      {
+        "text": "And the punchline: every interesting finding lands in Discord with the context you need to triage.\n\nNo tabs. No babysitting. No missed crit.",
+        "image": "visuals/06-t5-cascade-diagram.png"
+      },
+      {
+        "text": "🚀 Stop doing recon in steps. Start doing it in cascade.\n\nFree tier → https://app.bugrecon.me\nDiscord → https://discord.gg/fQfjWMrxU5\n\nBuilt by hunters, for hunters.\n\n#bugbounty #automation #recon",
+        "image": "visuals/02-t8-cta.png"
+      }
+    ]
+  },
+  {
+    "slot": 10,
+    "scheduled_at_utc": "2026-05-25T14:07:00Z",
+    "name": "15-takeover",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "Subdomain takeovers still pay $500 to $5,000 in 2026.\n\nNobody monitors dangling DNS continuously.\n\nBugRecon checks every sub on every cascade. Heroku, S3, GitHub Pages, Azure.\n\nOne report a quarter pays the tool for life.\n\nhttps://app.bugrecon.me\n\n#bugbounty",
+        "image": "visuals/15-takeover-finding.png"
+      }
+    ]
+  },
+  {
+    "slot": 11,
+    "scheduled_at_utc": "2026-05-28T14:07:00Z",
+    "name": "10-easm-blueteam",
+    "type": "thread",
+    "tweets": [
+      {
+        "text": "If you defend a perimeter, you have 3 problems:\n\n1. You do not know every asset you expose\n2. You do not know when new ones appear\n3. You learn about exposures from a hunter, not your own tools\n\nEASM fixes this. Here is how. 🧵👇",
+        "image": "visuals/10-t1-easm-hero.png"
+      },
+      {
+        "text": "External Attack Surface Management means: continuously map what the internet sees of you, and flag every change.\n\nMost tools do step 1. Few do step 2 in real time. Almost none give you evidence you can hand to engineering."
+      },
+      {
+        "text": "BugRecon doubles as an EASM platform:\n\n• CertStream catches new subs the moment a cert is issued\n• Scan diffs prove what changed between runs\n• Centralized logs with per-scan drilldown\n• Keycloak SSO ready, RBAC, multi-user"
+      },
+      {
+        "text": "Your engineering team gets:\n• A clean diff: \"yesterday vs today\"\n• Real evidence (screenshots, headers, vuln output)\n• Exportable scan history for audit\n\nNo more \"trust me bro, you have shadow IT\".",
+        "image": "visuals/10-t4-scan-diff.png"
+      },
+      {
+        "text": "Same engine, two audiences:\n• Hunters move fast and ship reports\n• Security teams hold the line and prove it\n\nOne platform. Two outcomes. Same low infra cost."
+      },
+      {
+        "text": "🚀 Stop discovering your assets through bug bounty reports. Start mapping them yourself.\n\nTalk to us → https://bugrecon.me/contact\nApp → https://app.bugrecon.me\n\nBuilt by hunters, for hunters.\n\n#EASM #infosec #attacksurface",
+        "image": "visuals/02-t8-cta.png"
+      }
+    ]
+  },
+  {
+    "slot": 12,
+    "scheduled_at_utc": "2026-05-31T14:07:00Z",
+    "name": "07-cve-search",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "CVE drops at 6 PM.\nTwitter starts screaming.\n\nHunters with BugRecon type one query:\nnginx:1.14.0\n\nBoom. Every asset running that version. Ready for a Nuclei spray in one click.\n\nThe first PoC wins the bounty. Be first.\n\nhttps://app.bugrecon.me\n\n#bugbounty #cve",
+        "image": "visuals/07-cve-search-split.png"
+      }
+    ]
+  },
+  {
+    "slot": 13,
+    "scheduled_at_utc": "2026-06-03T14:07:00Z",
+    "name": "18-five-features-missing",
+    "type": "thread",
+    "tweets": [
+      {
+        "text": "5 features your hand-rolled recon stack does not have.\n\nIf you have built one, you already know which ones hurt the most. 🧵👇",
+        "image": "visuals/18-t1-five-features.png"
+      },
+      {
+        "text": "1. Real-time scope sync.\n\nWhen a program adds a wildcard at noon, you find out at midnight (if at all).\nBugRecon syncs H1, YWH, Bugcrowd, Intigriti and queues scans on the diff."
+      },
+      {
+        "text": "2. CertStream wired to a cascade.\n\nWatching CT logs is easy. Catching a new sub, scanning it, and pinging you with a finding in under 2 minutes is not.\nBugRecon does the whole chain."
+      },
+      {
+        "text": "3. Scan diffs you can read in 5 seconds.\n\nMost stacks dump JSON. BugRecon shows you \"yesterday vs today\" with delta highlights. Engineering teams love this."
+      },
+      {
+        "text": "4. Nuclei spraying across multi-program scope.\n\nA single template, fired across every live host in every program at once. Nobody is doing this from a Makefile."
+      },
+      {
+        "text": "5. Async Discord alerts that include enough context to triage from your phone.\n\nMost homemade bots ping with \"scan done\". BugRecon pings with the finding.",
+        "image": "visuals/18-t6-comparison-table.png"
+      },
+      {
+        "text": "🚀 Stop maintaining infra. Start hunting.\n\nFree tier → https://app.bugrecon.me\nDiscord → https://discord.gg/fQfjWMrxU5\n\nBuilt by hunters, for hunters.\n\n#bugbounty #recon #infosec",
+        "image": "visuals/02-t8-cta.png"
+      }
+    ]
+  },
+  {
+    "slot": 14,
+    "scheduled_at_utc": "2026-06-06T14:07:00Z",
+    "name": "11-api-quickstart",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "BugRecon has a public API.\n\ncurl -X POST https://api.bugrecon.me/api/v1/scopes/$ID/scan \\\n -H \"Authorization: Bearer br_...\" \\\n -d '{\"scan_type\":\"subdomain\",\"subdomains\":[\"*.example.com\"]}'\n\nCI pipelines, dashboards, your zsh script. Wire it anywhere.\n\nhttps://app.bugrecon.me\n\n#bugbounty #api",
+        "image": "visuals/11-api-quickstart.png"
+      }
+    ]
+  },
+  {
+    "slot": 15,
+    "scheduled_at_utc": "2026-06-09T14:07:00Z",
+    "name": "14-js-secret",
+    "type": "thread",
+    "tweets": [
+      {
+        "text": "The most underrated bounty source in 2026 is still the same: hardcoded secrets in JavaScript bundles.\n\nDevs ship them. Scanners miss them. Hunters who automate it eat well. 🧵👇",
+        "image": "visuals/14-t1-js-underrated.png"
+      },
+      {
+        "text": "Why is it underrated?\n• Bundles are minified and look intimidating\n• grep'ing a 4MB main.chunk.js by hand is painful\n• Most scanners flag 200 false positives per file\n\nSo most hunters skip it. Bad call."
+      },
+      {
+        "text": "BugRecon JS Analysis crawls every JS bundle on every live host in your scope.\n\nHidden endpoints. API keys. AWS / GCP creds. JWT secrets.\n\nAI filters the noise so you only see what is actually exploitable.",
+        "image": "visuals/14-t3-js-finding.png"
+      },
+      {
+        "text": "Real flow:\nnew sub via CertStream → HTTP probe → JS scan → AWS key found in main.chunk.js → high severity Discord alert.\n\nYou go from cert log entry to leaked AWS access key in one cascade."
+      },
+      {
+        "text": "🚀 Stop skipping JS recon. Start auto-mining it.\n\nFree tier → https://app.bugrecon.me\nDiscord → https://discord.gg/fQfjWMrxU5\n\nBuilt by hunters, for hunters.\n\n#bugbounty #jsrecon #secrets",
+        "image": "visuals/02-t8-cta.png"
+      }
+    ]
+  },
+  {
+    "slot": 16,
+    "scheduled_at_utc": "2026-06-12T14:07:00Z",
+    "name": "16-day-in-life",
+    "type": "thread",
+    "tweets": [
+      {
+        "text": "A day in the life of a bug bounty hunter who automated their recon.\n\nSpoiler: there is a lot less terminal and a lot more coffee. 🧵👇",
+        "image": "visuals/16-t1-day-life.png"
+      },
+      {
+        "text": "07:00.\nPhone buzz: Discord alert.\nOvernight CertStream caught 4 new subs across 2 programs.\nCascade ran. 1 panel exposed, 1 takeover candidate.\n\nCoffee while reading the evidence."
+      },
+      {
+        "text": "08:30.\nOpen the BugRecon dashboard.\nSearch: \"apache 2.4.49\"\n3 hosts across 2 programs.\nClick. Spray Nuclei. 2 minutes."
+      },
+      {
+        "text": "10:00.\nBugcrowd program updated scope: 3 new wildcards.\nAlready synced. Already queued. Already enumerating.\n\nYou did nothing. The pipeline did everything."
+      },
+      {
+        "text": "13:00.\nLunch.\nDiscord ping: leaked AWS key found in JS bundle on a synced YWH program.\nYou write the report on your phone."
+      },
+      {
+        "text": "16:00.\nOpen scan diffs from this morning.\nYesterday: 412 live hosts.\nToday: 419.\n7 new attack surface entries to triage. None of them required a manual scan.",
+        "image": "visuals/16-t6-attack-chart.png"
+      },
+      {
+        "text": "22:00.\nYou go to bed.\nCertStream is awake. Cascade is armed. Discord is loud.\n\nTomorrow, repeat."
+      },
+      {
+        "text": "🚀 Stop doing recon. Start receiving it.\n\nFree tier → https://app.bugrecon.me\nDiscord → https://discord.gg/fQfjWMrxU5\n\nBuilt by hunters, for hunters.\n\n#bugbounty #recon #automation",
+        "image": "visuals/02-t8-cta.png"
+      }
+    ]
+  },
+  {
+    "slot": 17,
+    "scheduled_at_utc": "2026-06-15T14:07:00Z",
+    "name": "02-eleven-scanners",
+    "type": "thread",
+    "tweets": [
+      {
+        "text": "11 scanners.\n1 dashboard.\n0 CLI to install.\n\nThis is what BugRecon ships out of the box for bug bounty recon.\n\nThread 🧵👇",
+        "image": "visuals/02-t1-eleven-scanners.png"
+      },
+      {
+        "text": "🔍 Subdomain enumeration\nPassive + active engines, DNS validation, wildcard filtering. No more babysitting 6 different tools."
+      },
+      {
+        "text": "🌐 HTTP probe + 🔌 Port scan\nLive hosts on any port range. Custom headers, User-Agent, redirects. Real-time results piped straight to your scope view."
+      },
+      {
+        "text": "🕸 URL discovery + 🟨 JS analysis\nWayback, Common Crawl, active crawl. Then we crack JS bundles for hidden endpoints, API keys, hardcoded secrets. AI filters the noise."
+      },
+      {
+        "text": "⚡ Nuclei vuln scan\nBuilt-in, community, custom templates. Spray a single CVE template across your entire scope in one click."
+      },
+      {
+        "text": "🕵️ Leak detection + 🏴 Subdomain takeover + 🔑 Basic auth spray\nDangling DNS, leaked credentials, default logins. The boring wins that actually pay rent."
+      },
+      {
+        "text": "📷 Screenshots + 🤖 AI analysis\nVisual recon of every live host. AI ranks targets by exploitability so you know where to strike first."
+      },
+      {
+        "text": "🚀 Stop juggling 12 CLIs. Start hunting.\n\nFree tier → https://app.bugrecon.me\nDiscord → https://discord.gg/fQfjWMrxU5\n\nBuilt by hunters, for hunters.\n\n#bugbounty #recon #infosec",
+        "image": "visuals/02-t8-cta.png"
+      }
+    ]
+  },
+  {
+    "slot": 18,
+    "scheduled_at_utc": "2026-06-18T14:07:00Z",
+    "name": "08-nuclei-spray",
+    "type": "thread",
+    "tweets": [
+      {
+        "text": "You have a custom Nuclei template for the new 0day.\n\nYour scope has 14 programs and 4,200 live hosts.\n\nYou can:\nA) Run nuclei -t template.yaml -l hosts.txt 14 times\nB) Click once\n\nGuess which one BugRecon does. 🧵👇",
+        "image": "visuals/08-nuclei-spray.png"
+      },
+      {
+        "text": "Pick any template:\n• Built-in Nuclei\n• Community templates\n• Your own custom YAML\n\nPick any target set:\n• All programs\n• A single program\n• A filtered subset (search by tech, version, status code)"
+      },
+      {
+        "text": "Hit spray.\n\nCVE-2026-XXXX.yaml running across 3 programs · 847 targets.\nLive counter per program.\nFindings stream into Discord as they hit.\n\nYou watch a coffee brew. You have 2 confirmed crits."
+      },
+      {
+        "text": "Same trick works for:\n• Patch Tuesday cleanups\n• Monthly compliance sweeps\n• Pre-disclosure PoC validation\n• Dragnet scans across every program at once\n\nOne template. Every asset. Every time."
+      },
+      {
+        "text": "🚀 Stop running nuclei in a for loop. Start spraying.\n\nFree tier → https://app.bugrecon.me\nDiscord → https://discord.gg/fQfjWMrxU5\n\nBuilt by hunters, for hunters.\n\n#bugbounty #nuclei #recon",
+        "image": "visuals/02-t8-cta.png"
+      }
+    ]
+  },
+  {
+    "slot": 19,
+    "scheduled_at_utc": "2026-06-21T14:07:00Z",
+    "name": "20-build-public",
+    "type": "thread",
+    "tweets": [
+      {
+        "text": "We built BugRecon because we got tired of duct-taping 12 CLI tools every time we joined a new program.\n\nNow we ship it in public. Here is what that looks like. 🧵👇",
+        "image": "visuals/20-t1-architecture.png"
+      },
+      {
+        "text": "Every new scanner ships with:\n• A docs page (docs.bugrecon.me)\n• A changelog tweet\n• A demo in our Discord\n\nIf it breaks, we hear about it within the hour. If it slaps, we double down."
+      },
+      {
+        "text": "We run every sync against our own bug bounty programs first.\n\nH1, YWH, Bugcrowd, Intigriti. All live. If the diff misses a domain, we feel it before you do."
+      },
+      {
+        "text": "Roadmap is ready. Lots of new scanners and features are in the starting blocks."
+      },
+      {
+        "text": "Come hang out:\n• Break the product\n• Ask for a scanner that does not exist yet\n• Share a workflow we should automate\n• Roast the dashboard if it deserves it",
+        "image": "visuals/20-t5-discord-server.png"
+      },
+      {
+        "text": "🚀 Stop watching from the sidelines. Start shaping it.\n\nApp → https://app.bugrecon.me\nDiscord → https://discord.gg/fQfjWMrxU5\n\nBuilt by hunters, for hunters.\n\n#bugbounty #buildinpublic #infosec",
+        "image": "visuals/02-t8-cta.png"
+      }
+    ]
+  },
+  {
+    "slot": 20,
+    "scheduled_at_utc": "2026-06-24T14:07:00Z",
+    "name": "05-free-plan-announce",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "You do not need a credit card to start hunting with BugRecon.\n\nFree plan ships with:\n• 15 scans / month\n• Port + HTTP scans\n• Subdomain takeover\n• Basic auth spray\n• Screenshots\n• Search + Nuclei spraying\n\nSign up, run a scan, done.\n\nhttps://app.bugrecon.me\n\n#bugbounty #recon",
+        "image": "visuals/05-free-plan.png"
+      }
+    ]
+  }
+]
