@@ -159,16 +159,14 @@ def post(slot_n, auth_token, webhook):
                 page.wait_for_timeout(4500)
 
         page.wait_for_timeout(1500)
-        # Click the final "Post all" / "Post" button
-        post_btn = page.locator('[data-testid="tweetButton"]').first
-        post_btn.wait_for(state="visible", timeout=10000)
-        # ensure not disabled
-        for _ in range(10):
-            disabled = post_btn.get_attribute("aria-disabled") or ""
-            if disabled.lower() != "true":
-                break
-            page.wait_for_timeout(500)
-        post_btn.click()
+        # Final Post click via JS to bypass any overlays
+        page.evaluate("""
+            () => {
+                document.querySelectorAll('[data-testid="mask"]').forEach(m => m.remove());
+                const btn = document.querySelector('[data-testid="tweetButton"]');
+                if (btn) btn.click();
+            }
+        """)
         page.wait_for_timeout(8000)
 
         # Resolve posted URL by visiting profile
