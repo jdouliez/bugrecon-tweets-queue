@@ -1,0 +1,63 @@
+name: Post scheduled tweet
+
+on:
+  schedule:
+    # 14:07 UTC daily — checks if today is a scheduled slot
+    - cron: '7 14 * * *'
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Force a specific slot number (overrides date lookup)'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Resolve slot for today (or use input)
+        id: slot
+        run: |
+          set -e
+          if [ -n "${{ github.event.inputs.slot }}" ]; then
+            SLOT="${{ github.event.inputs.slot }}"
+          else
+            TODAY=$(date -u +%Y-%m-%d)
+            SLOT=$(python3 - <<PY
+          import json
+          d = json.load(open('schedule.json'))
+          for e in d:
+              if e['scheduled_at_utc'].startswith('$TODAY'):
+                  print(e['slot']); break
+          PY
+          )
+          fi
+          echo "slot=$SLOT" >> "$GITHUB_OUTPUT"
+          echo "Resolved slot: '$SLOT'"
+
+      - name: Skip if no slot scheduled today
+        if: steps.slot.outputs.slot == ''
+        run: |
+          echo "No slot scheduled for $(date -u +%Y-%m-%d). Exiting."
+
+      - name: Install Playwright + Chromium
+        if: steps.slot.outputs.slot != ''
+        run: |
+          pip install --quiet playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Run publisher
+        if: steps.slot.outputs.slot != ''
+        env:
+          X_AUTH_TOKEN: ${{ secrets.X_AUTH_TOKEN }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          python post.py ${{ steps.slot.outputs.slot }}
