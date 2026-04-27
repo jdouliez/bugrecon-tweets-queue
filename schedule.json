@@ -2,6 +2,17 @@
   {
     "slot": 1,
     "scheduled_at_utc": "2026-04-28T14:07:00Z",
+    "name": "00-promo-earlybird20p",
+    "type": "single",
+    "tweets": [
+      {
+        "text": "🎁 Launch deal for hunters.\n\nGet 20% off your first BugRecon paid plan with code: EARLYBIRD20P\n\nEvery scanner. Every alert. CertStream + scope sync + Nuclei spraying.\n\nClaim → https://app.bugrecon.me\n\nFree tier still no card needed.\n\n#bugbounty #recon #infosec"
+      }
+    ]
+  },
+  {
+    "slot": 2,
+    "scheduled_at_utc": "2026-05-01T14:07:00Z",
     "name": "01-stack-pain",
     "type": "single",
     "tweets": [
@@ -12,8 +23,8 @@
     ]
   },
   {
-    "slot": 2,
-    "scheduled_at_utc": "2026-05-01T14:07:00Z",
+    "slot": 3,
+    "scheduled_at_utc": "2026-05-04T14:07:00Z",
     "name": "09-discord-alert",
     "type": "single",
     "tweets": [
@@ -24,8 +35,8 @@
     ]
   },
   {
-    "slot": 3,
-    "scheduled_at_utc": "2026-05-04T14:07:00Z",
+    "slot": 4,
+    "scheduled_at_utc": "2026-05-07T14:07:00Z",
     "name": "13-shadow-clone",
     "type": "single",
     "tweets": [
@@ -36,8 +47,8 @@
     ]
   },
   {
-    "slot": 4,
-    "scheduled_at_utc": "2026-05-07T14:07:00Z",
+    "slot": 5,
+    "scheduled_at_utc": "2026-05-10T14:07:00Z",
     "name": "04-scope-sync",
     "type": "thread",
     "tweets": [
@@ -61,8 +72,8 @@
     ]
   },
   {
-    "slot": 5,
-    "scheduled_at_utc": "2026-05-10T14:07:00Z",
+    "slot": 6,
+    "scheduled_at_utc": "2026-05-13T14:07:00Z",
     "name": "03-certstream-3am",
     "type": "single",
     "tweets": [
@@ -73,8 +84,8 @@
     ]
   },
   {
-    "slot": 6,
-    "scheduled_at_utc": "2026-05-13T14:07:00Z",
+    "slot": 7,
+    "scheduled_at_utc": "2026-05-16T14:07:00Z",
     "name": "17-pricing-vs-diy",
     "type": "single",
     "tweets": [
@@ -85,8 +96,8 @@
     ]
   },
   {
-    "slot": 7,
-    "scheduled_at_utc": "2026-05-16T14:07:00Z",
+    "slot": 8,
+    "scheduled_at_utc": "2026-05-19T14:07:00Z",
     "name": "12-cert-to-rce-story",
     "type": "thread",
     "tweets": [
@@ -116,8 +127,8 @@
     ]
   },
   {
-    "slot": 8,
-    "scheduled_at_utc": "2026-05-19T14:07:00Z",
+    "slot": 9,
+    "scheduled_at_utc": "2026-05-22T14:07:00Z",
     "name": "19-ai-ranking",
     "type": "single",
     "tweets": [
@@ -128,8 +139,8 @@
     ]
   },
   {
-    "slot": 9,
-    "scheduled_at_utc": "2026-05-22T14:07:00Z",
+    "slot": 10,
+    "scheduled_at_utc": "2026-05-25T14:07:00Z",
     "name": "06-scan-cascade",
     "type": "thread",
     "tweets": [
@@ -157,8 +168,8 @@
     ]
   },
   {
-    "slot": 10,
-    "scheduled_at_utc": "2026-05-25T14:07:00Z",
+    "slot": 11,
+    "scheduled_at_utc": "2026-05-28T14:07:00Z",
     "name": "15-takeover",
     "type": "single",
     "tweets": [
@@ -169,8 +180,8 @@
     ]
   },
   {
-    "slot": 11,
-    "scheduled_at_utc": "2026-05-28T14:07:00Z",
+    "slot": 12,
+    "scheduled_at_utc": "2026-05-31T14:07:00Z",
     "name": "10-easm-blueteam",
     "type": "thread",
     "tweets": [
@@ -198,8 +209,8 @@
     ]
   },
   {
-    "slot": 12,
-    "scheduled_at_utc": "2026-05-31T14:07:00Z",
+    "slot": 13,
+    "scheduled_at_utc": "2026-06-03T14:07:00Z",
     "name": "07-cve-search",
     "type": "single",
     "tweets": [
@@ -210,8 +221,8 @@
     ]
   },
   {
-    "slot": 13,
-    "scheduled_at_utc": "2026-06-03T14:07:00Z",
+    "slot": 14,
+    "scheduled_at_utc": "2026-06-06T14:07:00Z",
     "name": "18-five-features-missing",
     "type": "thread",
     "tweets": [
@@ -242,8 +253,8 @@
     ]
   },
   {
-    "slot": 14,
-    "scheduled_at_utc": "2026-06-06T14:07:00Z",
+    "slot": 15,
+    "scheduled_at_utc": "2026-06-09T14:07:00Z",
     "name": "11-api-quickstart",
     "type": "single",
     "tweets": [
@@ -254,8 +265,8 @@
     ]
   },
   {
-    "slot": 15,
-    "scheduled_at_utc": "2026-06-09T14:07:00Z",
+    "slot": 16,
+    "scheduled_at_utc": "2026-06-12T14:07:00Z",
     "name": "14-js-secret",
     "type": "thread",
     "tweets": [
@@ -280,8 +291,8 @@
     ]
   },
   {
-    "slot": 16,
-    "scheduled_at_utc": "2026-06-12T14:07:00Z",
+    "slot": 17,
+    "scheduled_at_utc": "2026-06-15T14:07:00Z",
     "name": "16-day-in-life",
     "type": "thread",
     "tweets": [
@@ -315,8 +326,8 @@
     ]
   },
   {
-    "slot": 17,
-    "scheduled_at_utc": "2026-06-15T14:07:00Z",
+    "slot": 18,
+    "scheduled_at_utc": "2026-06-18T14:07:00Z",
     "name": "02-eleven-scanners",
     "type": "thread",
     "tweets": [
@@ -349,8 +360,8 @@
     ]
   },
   {
-    "slot": 18,
-    "scheduled_at_utc": "2026-06-18T14:07:00Z",
+    "slot": 19,
+    "scheduled_at_utc": "2026-06-21T14:07:00Z",
     "name": "08-nuclei-spray",
     "type": "thread",
     "tweets": [
@@ -374,8 +385,8 @@
     ]
   },
   {
-    "slot": 19,
-    "scheduled_at_utc": "2026-06-21T14:07:00Z",
+    "slot": 20,
+    "scheduled_at_utc": "2026-06-24T14:07:00Z",
     "name": "20-build-public",
     "type": "thread",
     "tweets": [
@@ -403,8 +414,8 @@
     ]
   },
   {
-    "slot": 20,
-    "scheduled_at_utc": "2026-06-24T14:07:00Z",
+    "slot": 21,
+    "scheduled_at_utc": "2026-06-27T14:07:00Z",
     "name": "05-free-plan-announce",
     "type": "single",
     "tweets": [
