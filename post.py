@@ -83,19 +83,36 @@ def post(slot_n, auth_token, webhook):
 
             if is_first:
                 page.goto("https://x.com/compose/post", wait_until="domcontentloaded", timeout=60000)
-                page.wait_for_timeout(2500)
-                editor = page.locator('div[role="textbox"][data-testid^="tweetTextarea"]').first
+                page.wait_for_timeout(4000)
+                # Try multiple selectors for the textarea (X's UI varies)
+                editor = None
+                for sel in [
+                    'div[role="textbox"][data-testid^="tweetTextarea"]',
+                    'div[data-testid^="tweetTextarea"]',
+                    'div[contenteditable="true"][role="textbox"]',
+                    'div[contenteditable="true"]',
+                ]:
+                    loc = page.locator(sel).first
+                    try:
+                        loc.wait_for(state="visible", timeout=8000)
+                        editor = loc
+                        print(f"[post] using selector: {sel}")
+                        break
+                    except Exception:
+                        continue
+                if editor is None:
+                    page.screenshot(path="/tmp/compose_fail.png", full_page=True)
+                    html = page.content()[:3000]
+                    raise RuntimeError(f"compose textbox not found at {page.url}; html start: {html}")
             else:
-                # Click "Add another post" button to add a thread tweet
                 add_btn = page.locator('[data-testid="addButton"]').first
                 add_btn.wait_for(timeout=10000)
                 add_btn.click()
-                page.wait_for_timeout(800)
-                # New textarea is the last one
-                editor = page.locator('div[role="textbox"][data-testid^="tweetTextarea"]').last
+                page.wait_for_timeout(1200)
+                editor = page.locator('div[contenteditable="true"]').last
 
             editor.click()
-            page.wait_for_timeout(300)
+            page.wait_for_timeout(400)
             editor.fill(t["text"])
             page.wait_for_timeout(700)
 

@@ -61,3 +61,11 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           python post.py ${{ steps.slot.outputs.slot }}
+
+      - name: Upload debug screenshot on failure
+        if: failure() && steps.slot.outputs.slot != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: compose-fail-screenshot
+          path: /tmp/compose_fail.png
+          if-no-files-found: ignore
