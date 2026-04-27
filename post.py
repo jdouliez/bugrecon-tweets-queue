@@ -73,6 +73,21 @@ def post(slot_n, auth_token, webhook):
         page.goto("https://x.com/home", wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(4000)
 
+        # Dismiss cookie banner if present (varies by region/IP)
+        page.evaluate("""
+            () => {
+                document.querySelectorAll('button').forEach(b => {
+                    const t = (b.innerText || '').toLowerCase();
+                    if (t.includes('accept all cookies') || t.includes('accepter tous les cookies') ||
+                        t.includes('refuse non-essential') || t.includes('refuser les cookies non n')) {
+                        b.click();
+                    }
+                });
+                document.querySelectorAll('[data-testid="mask"]').forEach(m => m.remove());
+            }
+        """)
+        page.wait_for_timeout(1500)
+
         # Verify logged in
         if "/login" in page.url or "/i/flow/login" in page.url:
             raise RuntimeError(f"auth_token rejected, ended at {page.url}")
@@ -84,6 +99,17 @@ def post(slot_n, auth_token, webhook):
             if is_first:
                 page.goto("https://x.com/compose/post", wait_until="domcontentloaded", timeout=60000)
                 page.wait_for_timeout(4000)
+                # Re-dismiss banners/masks on compose page
+                page.evaluate("""
+                    () => {
+                        document.querySelectorAll('button').forEach(b => {
+                            const t = (b.innerText || '').toLowerCase();
+                            if (t.includes('accept all cookies') || t.includes('accepter tous les cookies')) b.click();
+                        });
+                        document.querySelectorAll('[data-testid="mask"]').forEach(m => m.remove());
+                    }
+                """)
+                page.wait_for_timeout(1500)
                 # Try multiple selectors for the textarea (X's UI varies)
                 editor = None
                 for sel in [
@@ -111,7 +137,11 @@ def post(slot_n, auth_token, webhook):
                 page.wait_for_timeout(1200)
                 editor = page.locator('div[contenteditable="true"]').last
 
-            editor.click()
+            try:
+                editor.click(timeout=10000)
+            except Exception:
+                # Force-click via JS if overlay still intercepting
+                editor.evaluate("el => el.focus()")
             page.wait_for_timeout(400)
             editor.fill(t["text"])
             page.wait_for_timeout(700)
